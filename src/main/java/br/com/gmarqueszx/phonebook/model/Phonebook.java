@@ -6,7 +6,6 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 
 public class Phonebook {
     private String name;
@@ -17,6 +16,10 @@ public class Phonebook {
         System.out.println("Número de telefone alterado para: " + this.phone);
     }
 
+    @Override
+    public String toString() {
+        return "Nome: " + this.name + " | Telefone: " + this.phone;
+    }
 
 
 }

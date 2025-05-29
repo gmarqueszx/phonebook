@@ -30,6 +30,7 @@ public class Menu {
                 case 1:
                     Phonebook phonebook = new Phonebook();
 
+                    try {
                     System.out.println("Digite o nome do contato: ");
                     phonebook.setName(sc.nextLine());
                     System.out.println("Digite o telefone do contato com DDD: ");
@@ -39,9 +40,12 @@ public class Menu {
                         phonebook.setPhone(phone);
                         list.addPhonebook(phonebook);
                     } else {
-                        throw new InvalidPhoneNumber("Número de telefone inválido, tente novamente.");
+                        throw new InvalidPhoneNumber("Número de telefone inválido. O telefone deve ter 11 dígitos numéricos.");                    }
+                    } catch (InvalidPhoneNumber e) {
+                        System.err.println("Erro ao adicionar contato: " + e.getMessage()); // Exibe a mensagem de erro
                     }
                     break;
+
                 case 2:
                     System.out.println("Contatos salvos: ");
                     list.viewPhonebook();

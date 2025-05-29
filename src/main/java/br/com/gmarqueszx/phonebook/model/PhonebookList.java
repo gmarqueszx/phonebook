@@ -32,8 +32,6 @@ public class PhonebookList {
         for (Phonebook phonebook : phonebooks) {
             if (phonebook.getName().toLowerCase().contains(searchedName.toLowerCase())) {
                 System.out.println(phonebook);
-            } else {
-                System.out.println("Contato não encontrado.");
             }
         }
 
