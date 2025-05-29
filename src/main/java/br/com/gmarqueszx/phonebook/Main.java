@@ -1,4 +1,4 @@
-package br.com.gmarqueszx.phonebook.main;
+package br.com.gmarqueszx.phonebook;
 
 import br.com.gmarqueszx.phonebook.view.Menu;
 

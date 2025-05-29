@@ -18,14 +18,25 @@ public class PhonebookList {
         phonebooks.add(phonebook);
     }
 
-    public void removePhonebook(Phonebook phonebook) {
-        phonebooks.remove(phonebook);
+    public void removePhonebook(String removeName) {
+        phonebooks.removeIf(phonebook -> phonebook.getName().toLowerCase().contains(removeName.toLowerCase()));
     }
 
     public void viewPhonebook() {
         for (Phonebook phonebook : phonebooks) {
             System.out.println(phonebook);
         }
+    }
+
+    public void filterSearchedName(String searchedName) {
+        for (Phonebook phonebook : phonebooks) {
+            if (phonebook.getName().toLowerCase().contains(searchedName.toLowerCase())) {
+                System.out.println(phonebook);
+            } else {
+                System.out.println("Contato não encontrado.");
+            }
+        }
+
     }
 
 }

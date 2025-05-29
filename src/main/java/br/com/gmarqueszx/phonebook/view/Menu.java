@@ -1,19 +1,15 @@
 package br.com.gmarqueszx.phonebook.view;
 
-import br.com.gmarqueszx.phonebook.expection.InvalidPhoneNumber;
+import br.com.gmarqueszx.phonebook.controller.InvalidPhoneNumber;
 import br.com.gmarqueszx.phonebook.model.Phonebook;
 import br.com.gmarqueszx.phonebook.model.PhonebookList;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
     public static void menu() {
         Scanner sc = new Scanner(System.in);
-        Phonebook phonebook = new Phonebook();
         PhonebookList list = new PhonebookList();
-
-
 
         mainMenu:
         while (true) {
@@ -32,6 +28,8 @@ public class Menu {
 
             switch (option) {
                 case 1:
+                    Phonebook phonebook = new Phonebook();
+
                     System.out.println("Digite o nome do contato: ");
                     phonebook.setName(sc.nextLine());
                     System.out.println("Digite o telefone do contato com DDD: ");
@@ -45,8 +43,22 @@ public class Menu {
                     }
                     break;
                 case 2:
+                    System.out.println("Contatos salvos: ");
                     list.viewPhonebook();
                     break;
+                case 3:
+                    System.out.println("Digite o nome do contato que deseja procurar: ");
+                    String searchedName = sc.nextLine();
+                    list.filterSearchedName(searchedName);
+                    break;
+                case 4:
+                    System.out.println("Digite o nome do contato que deseja excluir: ");
+                    String removeName = sc.nextLine();
+                    list.removePhonebook(removeName);
+                    break;
+                case 0:
+                    System.out.println("Finalizando aplicação...");
+                    break mainMenu;
             }
 
 
